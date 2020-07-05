@@ -1,0 +1,134 @@
+{%extends 'extended.html'%}
+{%block codes%}
+<div id="accordion">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            CRAETE NEW STORY
+          </button>
+        </h5>
+      </div>
+  
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+            <form action="{%url 'fileupload_story'%}" method="post" id="sto" enctype="multipart/form-data">
+                {%csrf_token%}
+                {{form}}
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Story title </label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="story_name" aria-describedby="emailHelp" placeholder="Enter story title">
+                  <small id="emailHelp" class="form-text text-muted">Enter the story title </small>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Description of the story </label>
+                  <input type="text " class="form-control" id="exampleInputPassword1" name="story_description" placeholder="short description">
+                </div>
+                <div class="form-group">
+                    <label for="category">category </label>
+                    <select class="form-control" id='category' name='category' multiple searchable="Search here..">
+                        <option value="" disabled selected>choose category</option>
+                        <option value="love">love</option>
+                        <option value="action">action</option>
+                        <option value="adventure">adventure</option>
+                        <option value="horror">horror</option>
+                        <option value="suspence">suspence</option>
+                      </select>
+                </div>
+                      <div class="form-group mt-2">
+                        <label for="inputGroupFile01">select title pic </label>
+                        <div class="custom-file">
+                            
+                            <input type="file" class="custom-file-input" id="inputGroupFile01" name='story_tile'
+                              aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                          </div>
+                      </div>
+                    
+                <button type="submit" name='story_submit' id="story_submit" class="btn btn-primary">Submit</button>
+              </form> 
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            UPLOAD NEW CHAPTER 
+          </button>
+        </h5>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body">
+            <form action="{%url 'fileupload_chapter'%}" method="post" enctype="multipart/form-data">
+                {%csrf_token%}
+                {{form}}
+                <div class="form-group">
+                    <div class="dropdown">
+                        <label for="story_name">story name</label>
+                        <select class="form-control" id='story_name' name='story_name'>
+                            <option value="" disabled selected>choose story </option>
+                            {%for st in stories%}
+                            <option value={{st}}>{{st}}</option>
+                        {%endfor%}
+                          </select>
+                    </div>
+                    
+                </div>
+                <div class="form-group">
+
+                  <label for="exampleInputEmail1">Chapter name </label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="chapter_name" aria-describedby="emailHelp" placeholder="Enter chapter title">
+                  <small id="emailHelp" class="form-text text-muted">Enter chapter title</small>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Author name </label>
+                  <input type="text " class="form-control" id="exampleInputPassword1" name="author_name" placeholder="author name">
+                </div>
+                <div class="form-group">
+                    <label for="chapter_number">chapter number </label>
+                    <input type="number " class="form-control" id="chapter_name" name="chapter_number" placeholder="enter chapter number">
+                  </div>
+                  
+                  <div class="form-group mt-2">
+                    <label for="inputGroupFile01">select chapter file  </label>
+                    <div class="custom-file">
+                        
+                        <input type="file" class="custom-file-input" id="inputGroupFile01" name='chapter_file'
+                          aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                      </div>
+                  </div>
+                
+                  <div class="form-group mt-2">
+                    <label for="imageup">select chapter title pic </label>
+                    <div class="custom-file">
+                        
+                        <input type="file" class="custom-file-input" id="imageup" name='chapter_pic'
+                          aria-describedby="inputGroupFileAddon02">
+                        <label class="custom-file-label" for="imageup">Choose file</label>
+                      </div>
+                  </div>
+
+                    
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form> 
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            DELETE A CHAPTER 
+          </button>
+        </h5>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+  </div>
+{%endblock%}
