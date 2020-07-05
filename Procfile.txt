@@ -1,4 +1,3 @@
-<<<<<<< HEAD
-web: gunicorn freelancing.wsgi
-=======
+web: gunicorn mysite.wsgi
+
 
