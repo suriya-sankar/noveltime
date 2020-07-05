@@ -1,5 +1,4 @@
 <<<<<<< HEAD
-web: gunicorn myproject.wsgi
-=======
 web: gunicorn freelancing.wsgi
->>>>>>> 090b51dee292a3a524833d76bb08af8ac599f780
+=======
+
