@@ -3,11 +3,7 @@ body{
     background-color:linen
     }
     
-    /* @font-face {
-    font-family: myFirstFont;
-    src: url(LibreBaskerville-Italic.ttf);
-    font-weight: bolder;
-    } */
+   
     a {
     color: black;
     text-decoration: none;
