@@ -10,6 +10,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <!-- <script src="{% static '/jquery.js' %}"></script> -->
+        <script src="{% static '/scrip.js' %}"></script>
       
         <link rel="stylesheet" type="text/css" href="{% static '/file.css' %}">
         <!-- <link rel="stylesheet" type="text/css" href="{% static '/extendstyle.css'%}"> -->
@@ -28,11 +30,11 @@
            
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Home
+                <a class="nav-link" href="{% url 'index' %}">Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
               </li>
               <li class="nav-item">
@@ -40,7 +42,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Contact</a>
-              </li>
+              </li> -->
             </ul>
             
           </div>
@@ -57,3 +59,41 @@
 </body>
 </html>
 
+
+
+<script language="JavaScript">
+    $(document).ready(function() {
+        $('#comment_form').submit(function(e) { // catch the form's submit event
+            e.preventDefault();
+            $.ajax({ // create an AJAX call...
+                data: 
+                {
+                  story_name:$("#story_name").val(),
+                  chapter_name:$("#chapter_name").val(),
+                  chapter_number:$("#chapter_number").val(),
+                  comment_name:$("#comment_name").val(),
+                  comment_text:$("#comment_text").val(),
+                  'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                type:"POST", // GET or POST
+                url: "{% url 'add_comment' %}", // the file to call
+                success: function(response) { // on success..
+                   $('#posted_name').html($('#comment_name').val());
+                   $('#posted_comment').html($('#comment_text').val());
+                   $('#posted_time').html("just now");
+
+                   $('#fix').html("comment has been posted"); // update the DIV 
+                   $('#comment_name').val('');
+                   $('#comment_text').val('');
+                   
+
+                    
+                }
+            });
+            return false;
+        });
+    });
+</script>
+
+
+</script> 

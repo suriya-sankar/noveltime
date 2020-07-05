@@ -30,8 +30,10 @@ urlpatterns = [
     path('search',views.search,name='search'),
     path('previous/(?P<s_name>\w+)/(?P<c_num>\d+)/',views.previous,name='previous'),
     path('next_chap/(?P<s_name>\w+/(?P<c_num>\d+)/',views.next_chap,name='next_chap'),
+    path('add_comment/',views.add_comment,name='add_comment'),
     # path('individual_page/(?P<row_n>\w+)/(?P<batch_id>\w+)/',views.individual_page,name='individual_page'),
 ]
 urlpatterns +=staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
