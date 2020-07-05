@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.conf import settings 
 from django.shortcuts import redirect
 from .models import *
-import python-docx
+import docx
 
 
 from django.shortcuts import render 
