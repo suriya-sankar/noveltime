@@ -5,14 +5,18 @@
 
 
 <div class="my-4" style="border-bottom: 1px solid	#C0C0C0 ;">
-   <h2>{{chap.chapter_name}}</h2> 
+   <h2 style="font-family: meri;">{{chap.chapter_name}}</h2> 
 </div>
-<div class="row " style="background-color:aquamarine">
+
+
+
+
+<div class="row " style="background-color:rgb(245, 245, 237)">
 <div class="col-sm-9 ">
     <div class="row">
-        <div class="col-sm-12" style=" text-align: initial; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+        <div class="col-sm-12" style=" text-align: initial; font-family:   'Lucida Sans Unicode',  sans-serif">
         
-          <h5 style=" line-height: 175%;  ;"> {%for par in para%}
+          <h5 style=" line-height: 185%;  ;"> {%for par in para%}
             <br>
             &nbsp;&nbsp;&nbsp;
             
@@ -25,6 +29,7 @@
          
           
         </div>
+        
         <div class="col-lg-3 col-3">
          <p>  <a href="{% url 'previous' s_name=chap.story_name c_num=chap.chapter_number %}" class="btn btn-success">Previous Chapter</a></p>
         </div>

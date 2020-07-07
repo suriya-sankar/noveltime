@@ -1,7 +1,7 @@
 {%extends 'extended.html'%}
 {%block codes%}
 <div class="my-4" style="border-bottom: 1px solid	#C0C0C0 ;">
-   <h2>Chapters</h2> 
+   <h2 style="font-family: meri;">Chapters</h2> 
 </div>
 <div class="row">
 <div class="col-lg-9 ">
@@ -12,17 +12,18 @@
     {%for ch in chap%}
     
 
-    <div class="col-4 col-lg-3">
-        <a href="{% url 'reading_page' ss_title=ch.story_name c_num=ch.chapter_number %}">
+    <div class="col-6 col-lg-3">
+        <a href="{% url 'reading_page' ss_title=ch.story_name c_num=ch.chapter_number %}"  style="background-color:rgba(239, 252, 203, 0.979);">
         <div class="card mb-5  border rounded shadow-sm bg-white ">
             <img class="card-img-top"  src='/media/{{ch.chapter_image}}' alt={{ch.chapter_image}} >
            
             <div class="card-body-lg" >
                 <div class="card-title text-responsive" style="border-bottom: 1px solid #C0C0C0;" >
-                    <h3 style="margin-left: 2%; margin-top: 2%;" >{{ch.chapter_number}}&nbsp;{{ch.chapter_name}}  </h3>
+                    <h3 style="margin-left: 2%; margin-top: 3%; font-family:'eastwood';color:rgba(163, 60, 0, 0.822) ; font-stretch: wider;" >{{ch.chapter_number}}&nbsp;{{ch.chapter_name}}  </h3>
                 </div>
-                 <div class="card-text text-responsive" style=" border-bottom: 1px solid #C0C0C0;">
-                    <p>&nbsp;&nbsp;{{ch.chapter_description}}</p> 
+                <p style="margin-top: -2%; margin-bottom: 3%; "><span class=" fa-pull-right " style="color:rgb(231, 58, 5);">&#9733;{{ch.rating}}</span></p>
+                 <div class="card-text text-responsive" >
+                    <p style=" font-family:karla; color: rgba(2, 15, 58, 0.884);margin-left: 3%; margin-right: 3%;">&nbsp;&nbsp;{{ch.chapter_description}}</p> 
                  </div>
                 
                
@@ -30,7 +31,7 @@
             </div>
          
             <div class="card-footer-sm text-responsive" >
-               <h6>posted on {{ch.chapter_time}}</h6> 
+               <h6 style="font-family: karla;">posted on {{ch.chapter_time}}</h6> 
             </div>
         </a>
     

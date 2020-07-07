@@ -1,8 +1,19 @@
 body{
     padding-top: 56px;
-    background-color:linen
-    }
-    
+
+}
+.star-rating {
+    line-height:32px;
+    font-size:1.25em;
+  }
+  
+  .star-rating .fa-star{color: rgb(158, 8, 8);}    
+  
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
    
     a {
     color: black;
@@ -14,9 +25,10 @@ body{
     color:black;
     box-shadow: 5px 5px 5px #888888;
     }
+    
     card:hover
     {
-    box-shadow: 5px 10px;
+    box-shadow: 7px 13px;
     }
     
     /* 
@@ -38,30 +50,36 @@ body{
     */
     /* Small devices (landscape phones, 544px and up) */
     @media (min-width: 300px)  { 
+        .audi2o{
+            height: 20px;
+        }
     h2{font-size:17px;} 
     h5{font-size:16px;}
-    h3 {font-size:12px;} /*1rem = 16px*/
+    h3 {font-size:15px;} /*1rem = 16px*/
     h6{font-size:9px;
     font-weight: normal;
     margin-left: 2%;
     margin-top: -5%;}
-    p {font-size:9px;
+    p {font-size:10px;
+      text-align: justify;
     margin-left: 2%; 
+    margin-right: 2%;
     margin-top: -4%;} /*1rem = 16px*/
     .card{
     margin-bottom: 1%;
     }
     
+    
     }
     
     
-    }
+    
     
     /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
     @media (min-width: 768px) {  
     h2{font-size:20px;}
     h5{font-size:23px;}
-    h3 {font-size:16px;} /*1rem = 16px*/
+    h3 {font-size:20px;} /*1rem = 16px*/
     h6{font-size:10px;
         font-weight: normal;
         margin-left: 2%;
@@ -71,6 +89,7 @@ body{
     margin-top: -1%;} /*1rem = 16px*/
     .card{
     margin-bottom: 5%;
+    
     }
    
     
@@ -80,7 +99,7 @@ body{
     @media (min-width: 992px) { 
     h2{font-size:23px;}
     h5{font-size:23px;}
-    h3 {font-size:20px;} /*1rem = 16px*/
+    h3 {font-size:25px;} /*1rem = 16px*/
     h6{font-size:12px;
         font-weight: normal;
         margin-left: 2%;
@@ -94,21 +113,29 @@ body{
     .card{
     margin-bottom: 6%;
     }
+   
+    
     }
     
     /* Extra large devices (large desktops, 1200px and up) */
     @media (min-width: 1200px) {  
     h2{font-size:26px;}
     h5{font-size:23px;}
-    h3 {font-size:23px;
+    h3 {font-size:30px;
     } /*1rem = 16px*/  
-    p{font-size:15px;
+    p{font-size:18px;
         margin-left: 2%;
          margin-top: 2%;} /*1rem = 16px*/
     h6{font-size:15px;
         font-weight: normal;
         margin-left: 2%;
         margin-top: 2%;}
+        .audio_para {
+    
+       
+            margin-top:-3%;
+       
+    }
     
     }
     
@@ -188,9 +215,6 @@ body{
     }
     
     
-    .card-img-top {
-    object-fit: contain;
-    }
     
     
     

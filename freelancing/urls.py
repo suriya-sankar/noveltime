@@ -31,7 +31,14 @@ urlpatterns = [
     path('previous/(?P<s_name>\w+)/(?P<c_num>\d+)/',views.previous,name='previous'),
     path('next_chap/(?P<s_name>\w+/(?P<c_num>\d+)/',views.next_chap,name='next_chap'),
     path('add_comment/',views.add_comment,name='add_comment'),
-    # path('individual_page/(?P<row_n>\w+)/(?P<batch_id>\w+)/',views.individual_page,name='individual_page'),
+    path('audiobook/',views.audiobook,name='audiobook'),
+    path('fileupload_audio/',views.fileupload_audio,name='fileupload_audio'),
+    path('fileupload_audio_chapter',views.fileupload_audio_chapter,name='fileupload_audio_chapter'),
+    path('audio_chapters/(?P<s_title>\w+)/',views.audio_chapters,name='audio_chapters'),
+    path('audio_add_comment/',views.audio_add_comment,name='audio_add_comment'),
+  
+
+    
 ]
 urlpatterns +=staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

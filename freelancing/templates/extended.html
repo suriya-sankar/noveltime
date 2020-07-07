@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>extended</title>
+        <title>Noveltime</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Bootstrap 4 Navbar Color Schemes</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -16,7 +16,34 @@
         <link rel="stylesheet" type="text/css" href="{% static '/file.css' %}">
         <!-- <link rel="stylesheet" type="text/css" href="{% static '/extendstyle.css'%}"> -->
 
-  
+        <style>
+          @font-face {
+            font-family: 'eastwood';
+            src: local('eastwood'),
+            
+                 url('{% static "fonts/Bangers-Regular.ttf" %} ');
+          }
+          @font-face {
+            font-family: 'doris';
+            src: local('doris'),
+            
+                 url('{% static "fonts/Dosis-VariableFont_wght.ttf" %} ');
+          }
+          @font-face {
+            font-family: 'karla';
+            src: local('karla'),
+            
+                 url('{% static "fonts/Karla-Regular.ttf" %} ');
+                 MeriendaOne-Regular.ttf
+          }
+          @font-face {
+            font-family: 'meri';
+            src: local('meri'),
+            
+                 url('{% static "fonts/MeriendaOne-Regular.ttf" %} ');
+                 
+          }
+        </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -30,19 +57,19 @@
            
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="{% url 'index' %}">Home
+                <a class="nav-link" href="{% url 'index' %}">Story
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+               <li class="nav-item">
+                <a class="nav-link" href="{% url 'audiobook' %}">Audiobook</a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="#">Services</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Contact</a>
-              </li> -->
+              </li> --> 
             </ul>
             
           </div>
@@ -92,8 +119,43 @@
             });
             return false;
         });
-    });
+       
+    // });
+    // $(document).ready(function() {
+    $('#audio_comment_form').submit(function(e) { // catch the form's submit event
+            e.preventDefault();
+            $.ajax({ // create an AJAX call...
+                data: 
+                {
+                  a_story_name:$("#a_story_name").val(),
+                  
+                  a_comment_name:$("#a_comment_name").val(),
+                  a_comment_text:$("#a_comment_text").val(),
+                  'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                type:"POST", // GET or POST
+                url: "{% url 'audio_add_comment' %}", // the file to call
+                success: function(response) { // on success..
+                   $('#a_posted_name').html($('#a_comment_name').val());
+                   $('#a_posted_comment').html($('#a_comment_text').val());
+                   $('#a_posted_time').html("just now");
+
+                   $('#a_fix').html("comment has been posted"); // update the DIV 
+                   $('#a_comment_name').val('');
+                   $('#a_comment_text').val('');
+                   
+
+                    
+                }
+            });
+            return false;
+        });
+      });
+  
+    
+
+       
 </script>
 
 
-</script> 
+

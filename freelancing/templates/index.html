@@ -5,19 +5,17 @@
     <div class="row" >
         
         <div class="col-2">
-           <h2> stories</h2>
+           <h2 style="font-family: meri;"> stories</h2>
         </div>
-        <div class="col-1">
-
-        </div>
-        <div class="col-7">
+        
+        <div class="col-9 col-lg-6">
 
 
             
         <form action="{% url 'search' %}" method="POST">
             {%csrf_token%}
-           <h2 style="font-style: 40%;"> <input type="text" placeholder="Search.." name="search" style="width: 50%; font-weight: lighter; font-family: monospace; font-size: 90%; border: none; border-radius: 2%; background-color:rgba(242, 241, 239, 1);  ">
-            <button type="submit"  style="border:none; font-weight: lighter; font-size: 90%; font-family: monospace;" >search</button></h2>
+           <h2> <input type="text" placeholder="Search" name="search" style=" padding-top:4px; padding-bottom: 2px; width: 70%; font-weight: lighter;border: none; border-radius: 5px; background-color: rgba(232, 239, 241, 0.781); color: firebrick; font-family: monospace;  box-shadow: 2px 2px 2px #e9cccc; font-size: 70%;  ">
+            <button  type="submit"  style=" font-family:doris;font-weight: bold; background-color: rgb(202, 221, 185); border-radius: 5px; border:none; font-weight: lighter; font-size: 90%; font-family: monospace; box-shadow: 2px 2px 2px #e9cccc; font-size: 70%;" >search</button></h2>
           </form>
         </div>
     </div>
@@ -31,25 +29,29 @@
     
     {%for st in stories%}
         
-    <div class="col-5 col-lg-3">
-        <a href="{%url 'chapter_page' s_title=st.story_title %}">
+    <div class="col-6 col-lg-4" >
+        <a href="{%url 'chapter_page' s_title=st.story_title %}"  style="background-color: rgba(250, 244, 235, 0.911);">
         <div class="card  mb-5   border rounded shadow-sm bg-white ">
             <img class="card-img-top"  src='media/{{st.story_title_pic}}' alt='image not uploaded'>
-            <div class="card-body-sm" >
+            <div class="card-body-sm " >
                 <div class="card-title text-responsive" style="border-bottom: 1px solid #C0C0C0;" >
-                    <h3 style="margin-left: 2%; margin-top: 3%;" >{{st.story_title}} </h3>
+                    <h3 style="margin-left: 2%; margin-top: 3%; font-family:'eastwood';color:rgba(163, 60, 0, 0.822) ; font-stretch: wider; " >{{st.story_title}}   </h3>
+                   
                 </div>
+                <p style="margin-top: -2%; margin-bottom: 3%; "><span class=" fa-pull-right " style="color:rgb(231, 58, 5);"> &#9733;{{st.rating}}</span></p>
                  <div class="card-text text-responsive" >
-                    <p style="border-bottom: 1px solid #C0C0C0;">&nbsp;&nbsp;{{st.story_descrtiption}}</p> 
+                  
+                    <!-- <p>rating&nbsp;&nbsp;{{st.rating}}</p> -->
+                    <p style=" font-family:karla; color: rgba(2, 15, 58, 0.884);">&nbsp;&nbsp;{{st.story_descrtiption}}</p> 
                  </div>
                 
                
                  
             </div>
           
-            <div class="jk">
+            <div class="jk" >
             <div class="card-footer-sm text-responsive "  >
-               <h6>posted on {{st.upload_time}}</h6> 
+               <h6 style="font-family: karla;">posted on {{st.upload_time}}</h6> 
             </div></div>
         </a>
         </div>
