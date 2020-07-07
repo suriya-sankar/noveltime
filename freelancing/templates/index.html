@@ -1,4 +1,5 @@
 {%extends 'extended.html'%}
+{% load static %}
 {%block codes%}
 <div class="my-4" style="border-bottom: 1px solid	#C0C0C0 ;">
   
@@ -33,6 +34,8 @@
         <a href="{%url 'chapter_page' s_title=st.story_title %}"  style="background-color: rgba(250, 244, 235, 0.911);">
         <div class="card  mb-5   border rounded shadow-sm bg-white ">
             <img class="card-img-top"  src='media/{{st.story_title_pic}}' alt='image not uploaded'>
+            <!-- <img class="card-img-top" src='{% static "media/{{st.story_title_pic}}" %}' alt='image not uploaded'> -->
+            
             <div class="card-body-sm " >
                 <div class="card-title text-responsive" style="border-bottom: 1px solid #C0C0C0;" >
                     <h3 style="margin-left: 2%; margin-top: 3%; font-family:'eastwood';color:rgba(163, 60, 0, 0.822) ; font-stretch: wider; " >{{st.story_title}}   </h3>
