@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'tn42#wa7x5m*cm*_@e!$8g-*hphc5q=nr*-icjf02))1t)ydz0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['cfehome.herokuapp.com']
 
@@ -133,6 +133,6 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_URL='/media/'
 # MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", "media-root")
+MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", "freelancing/media-root")
 # Activate Django-Heroku.
 django_heroku.settings(locals())
