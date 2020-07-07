@@ -5,7 +5,7 @@ class story(models.Model):
    
     story_title=models.CharField(max_length=30,blank=False)
     story_descrtiption=models.TextField()
-    story_title_pic=models.ImageField()
+    story_title_pic=models.ImageField(upload_to='media')
     upload_time=models.DateTimeField(auto_now_add=True)
    
     category=models.CharField(max_length=20 ,blank=True)
@@ -21,7 +21,7 @@ class chappter(models.Model):
     author_name=models.CharField(max_length=30,default='not mentioned',blank=True)
     chapter_description=models.CharField(max_length=500,default='chapter description not mentioned')
     chapter_story=models.FileField()
-    chapter_image=models.ImageField()
+    chapter_image=models.ImageField(upload_to='media/')
     chapter_number=models.CharField(max_length=5,default='1')
     rating=models.IntegerField()
    
@@ -42,7 +42,7 @@ class audio_story(models.Model):
    
     story_title=models.CharField(max_length=30,blank=False)
     story_descrtiption=models.TextField()
-    story_title_pic=models.ImageField()
+    story_title_pic=models.ImageField(upload_to='media/')
     upload_time=models.DateTimeField(auto_now_add=True)
     rating=models.IntegerField()
     category=models.CharField(max_length=20 ,blank=True)
@@ -56,7 +56,7 @@ class audio_chappter(models.Model):
     author_name=models.CharField(max_length=30,default='not mentioned',blank=True)
     chapter_description=models.CharField(max_length=500,default='chapter description not mentioned')
     chapter_story=models.FileField()
-    chapter_image=models.ImageField()
+    chapter_image=models.ImageField(upload_to='media/')
     chapter_number=models.CharField(max_length=5)
     rating=models.IntegerField()
     chapter_time=models.DateTimeField(auto_now_add=True)
