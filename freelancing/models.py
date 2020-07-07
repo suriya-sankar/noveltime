@@ -37,6 +37,8 @@ class comments(models.Model):
     comment_time=models.DateTimeField(auto_now_add=True)        
     def __str__(self):
         return self.story_name
+class information(models.Model):
+    inform=models.TextField()        
 
 class audio_story(models.Model):
    

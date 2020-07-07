@@ -9,7 +9,8 @@ from django.shortcuts import render
 
 def index(request):
     all_stories=story.objects.all().order_by('upload_time')
-    return render(request,'index.html',{'stories':all_stories.reverse()})
+    info=information.objects.all()
+    return render(request,'index.html',{'stories':all_stories.reverse(),'info':info})
 
 def fileupload(request):
     all_stories=story.objects.all()
