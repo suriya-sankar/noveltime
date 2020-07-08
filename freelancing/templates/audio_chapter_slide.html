@@ -16,7 +16,13 @@
               <div class="col-12 col-lg-12" style="box-shadow: 5px 5px 5px #888888;">
                   <div class="row">
                    <div class="col-4 col-lg-2">
+              
+              {%if ch.chapter_image%}
               <img class="img-fluid"src='/media/{{ch.chapter_image}}' alt={{ch.chapter_image}} >
+            
+             {%else%}
+            <img class="img-fluid"  src='/media/{{st.story_title_pic}}' alt={{st.story_title_pic}} >
+            {%endif%}
           </div>
           <div class="col-8 col-lg-10 " >
               <div class="row">

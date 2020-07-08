@@ -7,16 +7,20 @@
 <div class="row">
 <div class="col-lg-9 ">
 <div class="row">
-    
-
+   
     
     {%for ch in chap%}
-    
+  
 
     <div class="col-6 col-lg-3">
         <a href="{% url 'reading_page' ss_title=ch.story_name c_num=ch.chapter_number %}"  style="background-color:rgba(239, 252, 203, 0.979);">
         <div class="card mb-5  border rounded shadow-sm bg-white ">
+           {%if ch.chapter_image%}
             <img class="card-img-top"  src='/media/{{ch.chapter_image}}' alt={{ch.chapter_image}} >
+            
+             {%else%}
+            <img class="card-img-top"  src='/media/{{st.story_title_pic}}' alt={{st.story_title_pic}} >
+            {%endif%}
            
             <div class="card-body-lg" >
                 <div class="card-title text-responsive" style="border-bottom: 1px solid #C0C0C0;" >

@@ -23,7 +23,7 @@ from django.views.static import serve
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='index'),
-    # path('fileupload',views.fileupload,name='fileupload'),
+    path('fileupload',views.fileupload,name='fileupload'),
     path('fileupload_story',views.fileupload_story,name='fileupload_story'),
     path('fileupload_chapter',views.fileupload_chapter,name='fileupload_chapter'),
     path('chapter_page/(?P<s_title>\w+)/',views.chapter_page,name='chapter_page'),

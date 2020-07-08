@@ -57,10 +57,14 @@ def fileupload_chapter(request):
         chap.save()
         return redirect('fileupload') 
 def chapter_page(request,s_title):
+    # print("hi")
     # print(s_title)
+    story3=story.objects.get(story_title=s_title)
     chapters=chappter.objects.filter(story_name=s_title).order_by('chapter_time')
+    # print(story3)
     
-    return render(request,'chapter_slide.html',{'chap':chapters})
+    
+    return render(request,'chapter_slide.html',{'chap':chapters,'st':story3})
     # return render(request,'uploadingfile.html',{'stories':all_stories})
 def reading_page(request,ss_title,c_num):
     
@@ -168,9 +172,10 @@ def fileupload_audio_chapter(request):
         chap.save()
         return redirect('fileupload') 
 def audio_chapters(request,s_title):
+     story3=audio_story.objects.get(story_title=s_title)
      chapters=audio_chappter.objects.filter(story_name=s_title).order_by('chapter_time')
      commentss=audio_comments.objects.filter(story_name=s_title).order_by('comment_time')
-     return render(request,'audio_chapter_slide.html',{'chap':chapters,'comments':commentss.reverse(),'story_n':s_title})
+     return render(request,'audio_chapter_slide.html',{'chap':chapters,'comments':commentss.reverse(),'story_n':s_title,'st':story3})
             
 def audio_add_comment(request):
     if request.is_ajax(): 
